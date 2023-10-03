@@ -19,8 +19,6 @@ $(function () {
     fill: {
       opacity:1
     },
-    plotOptions: {
-    },
     series: [{
       name: 'IPM',
       data: [65.68, 66.12, 66.11, 66.32, 67.03]
