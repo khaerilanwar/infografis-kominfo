@@ -303,10 +303,141 @@ optionsGender = {
 
 }
 
+optionsASN = {
+    series: [
+        {
+            name: 'Laki-laki',
+            data: [4007, 1246]
+        },
+        {
+            name: 'Perempuan',
+            data: [4079, 2256]
+        }
+    ],
+
+    chart: {
+        type: 'bar',
+        // height: 300
+    },
+
+    fill: {
+        opacity: 1
+    },
+
+    plotOptions: {
+        bar: {
+            horizontal: false,
+            borderRadius: 5,
+            borderRadiusApplication: 'end',
+            barHeight: '80%',
+            barWidth: '40%',
+            dataLabels: {
+                position: 'top'
+            }
+        }
+    },
+
+    dataLabels: {
+        enabled: true,
+        offsetX: -6,
+        style: {
+            fontSize: '12px',
+            colors: ['#fff']
+        },
+        formatter: function (value) {
+            // Menghilangkan desimal dan angka nol di belakang koma
+            return value.toLocaleString('id-ID');
+        }
+    },
+
+    stroke: {
+        show: true,
+        width: 1,
+        colors: ['#fff']
+    },
+
+    tooltip: {
+        shared: true,
+        intersect: false
+    },
+
+    grid: {
+        borderColor: '#000'
+    },
+
+    legend: {
+        fontSize: '14px',
+        itemMargin: {
+            horizontal: 15
+        },
+        markers: {
+            radius: 100
+        }
+    },
+
+    // title: {
+    //     text: 'TOTAL PNS dan PPPK',
+    //     align: 'center',
+    //     style: {
+    //         fontSize: '20px',
+    //         fontWeight: 600
+    //     }
+    // },
+
+    dataLabels: {
+        offsetY: 20,
+        style: {
+            fontSize: '16px'
+        },
+        formatter: function (value) {
+            // Menghilangkan desimal dan angka nol di belakang koma
+            return value.toLocaleString('id-ID');
+        }
+    },
+
+    xaxis: {
+        categories: ['PNS dan CPNS', 'PPPK'],
+        axisBorder: {
+            color: '#000'
+        },
+        // axisTicks: {
+        //     color: '#000'
+        // },
+        labels: {
+            style: {
+                fontSize: '16px',
+                fontWeight: 550
+            }
+        }
+    },
+
+    yaxis: {
+        axisTicks: {
+            show: true,
+            color: '#000'
+        },
+        axisBorder: {
+            show: true,
+            color: '#000'
+        },
+        labels: {
+            style: {
+                fontSize: '14px'
+            },
+            formatter: function (value) {
+                // Menghilangkan desimal dan angka nol di belakang koma
+                return value.toLocaleString('id-ID');
+            }
+        }
+    }
+}
+
 var chartKemiringanLahan = new ApexCharts(document.querySelector('#chart-kemiringan-lahan'), optionsKemiringanLahan);
 var chartLahanBukanSawah = new ApexCharts(document.querySelector("#chart-lahan"), optionsLahanBukanSawah);
 var chartGender = new ApexCharts(document.querySelector("#chart-gender"), optionsGender);
+var chartASN = new ApexCharts(document.querySelector('#chart-asn'), optionsASN);
 
 chartLahanBukanSawah.render();
 chartKemiringanLahan.render();
 chartGender.render();
+chartASN.render();
