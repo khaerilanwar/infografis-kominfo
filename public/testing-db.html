@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Hello World!</h1>
+
+
+    <script>
+        console.log("Hello World!");
+    </script>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
+        import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyB2NSWc8_tX8unwsrRlo3jpSYbxsXjlyIY",
+            authDomain: "anwar-ml.firebaseapp.com",
+            databaseURL: "https://anwar-ml-default-rtdb.firebaseio.com",
+            projectId: "anwar-ml",
+            storageBucket: "anwar-ml.appspot.com",
+            messagingSenderId: "599710129151",
+            appId: "1:599710129151:web:efa52e950869f0908a65ca",
+            measurementId: "G-W2G69KT8WW"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase();
+
+        let dataMahasiswa = {};
+        let mahasiswa = ref(db, 'mahasiswa');
+        onValue(mahasiswa, (items) => {
+            const data = items.val();
+            // console.log(data['1']);
+            // dataMahasiswa['data'] = data;
+            // dataMahasiswa.data = data;
+        });
+
+        console.log(dataMahasiswa['data']);
+    </script>
+
+    <!-- <script type="module" src="assets/js/firebase.js"></script> -->
+</body>
+
+</html>

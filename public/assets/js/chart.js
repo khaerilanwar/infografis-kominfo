@@ -125,7 +125,7 @@ var optionsKemiringanLahan = {
                     },  
                 labels: {
                     style: {
-                    fontSize: '12px'
+                        fontSize: '12px'
                     },
                     formatter: function (value) {
                         // Menghilangkan desimal dan angka nol di belakang koma
@@ -137,7 +137,17 @@ var optionsKemiringanLahan = {
                     borderType: 'solid',
                     color: '#000'
                     },
-                }
+                },
+                dataLabels: {
+                    enabled: true,
+                    style: {
+                        fontSize: '8px'
+                    },
+                    formatter: function (value) {
+                        // Menghilangkan desimal dan angka nol di belakang koma
+                        return value.toLocaleString('id-ID');
+                    }
+                },
             }
         }
     ],
@@ -432,12 +442,299 @@ optionsASN = {
     }
 }
 
+optionsPejabatStruktural = {
+    series: [36, 153, 214],
+    labels: ['Eselon II', 'Eselon III', 'Eselon IV'],
+    colors: ['#3876BF','#F99417', '#BFCCB5'],
+    chart: {
+        // width: 320,
+        height: 330,
+        type: 'pie'
+    },
+    plotOptions: {
+        pie: {
+            // offsetX: -40,
+            dataLabels: {
+                offset:-30
+            }
+        }
+    },
+    title: {
+        text: 'Pejabat Struktural',
+        // align: 'center',
+        offsetX: 40,
+        style: {
+            fontSize: '25px',
+            fontWeight: 'bold'
+        }
+    },
+    dataLabels: {
+        enabled: true,
+        style: {
+            fontSize: '18px',
+        },
+        dropShadow: {
+            enabled: false
+        },
+        formatter: function (val, opts) {
+            return opts.w.globals.series[opts.seriesIndex];
+        },
+    },
+    states: {
+        hover: {
+            filter: {
+                type: 'darken',
+                value: 0.8
+            },
+        }
+    },
+    legend: {
+        show: true,
+        position: 'bottom',
+        fontSize: '13px',
+        // inverseOrder: true,
+        // offsetX: -95,
+        itemMargin: {
+            horizontal: 10,
+            vertical: 0
+        }
+    }
+
+}
+
+optionsPejabatFungsional = {
+    series: [5926, 5259],
+    labels: ['Fungsional Umum', 'Fungsional Tertentu'],
+    colors: ['#E9B824','#D83F31'],
+    chart: {
+        // width: 320,
+        height: 330,
+        type: 'pie'
+    },
+    plotOptions: {
+        pie: {
+            // offsetX: -40,
+            dataLabels: {
+                offset:-30
+            }
+        }
+    },
+    title: {
+        text: 'Pejabat Fungsional',
+        // align: 'center',
+        offsetX: 25,
+        style: {
+            fontSize: '25px',
+            fontWeight: 'bold'
+        }
+    },
+    dataLabels: {
+        enabled: true,
+        style: {
+            fontSize: '18px',
+        },
+        dropShadow: {
+            enabled: false
+        },
+        formatter: function (val, opts) {
+            return opts.w.globals.series[opts.seriesIndex];
+        },
+    },
+    states: {
+        hover: {
+            filter: {
+                type: 'darken',
+                value: 0.8
+            },
+        }
+    },
+    legend: {
+        show: true,
+        position: 'bottom',
+        fontSize: '13px',
+        inverseOrder: true,
+        // offsetX: -25,
+        // floating: true,
+        // itemMargin: {
+        //     horizontal: 5,
+        //     vertical: 0
+        // }
+    }
+
+}
+
+optionsAP = {
+    responsive: [
+        {
+            breakpoint: 768,
+            options: {
+                plotOptions: {
+                    bar: {
+                        dataLabels: {
+                            // position: 'center'
+                        }
+                    }
+                },
+                xaxis: {
+                    axisBorder: {
+                        show: true,
+                        color: '#000',
+                        height: 2
+                    },
+                    labels: {
+                        offsetY: -3,
+                        style: {
+                            fontSize: '14px',
+                            fontWeight: 550,
+                            colors: ['#000', '#000', '#000', '#000']
+                        }
+                    }
+                },
+                dataLabels: {
+                    offsetY: -8,
+                    enabled: true,
+                    style: {
+                        fontSize: '5px',
+                        colors: ['#000']
+                    },
+                    formatter: function (value) {
+                        // Menghilangkan desimal dan angka nol di belakang koma
+                        return value.toLocaleString('id-ID');
+                    }
+                },
+                legend: {
+                    show: true,
+                    position: 'bottom',
+                    fontSize: '12px',
+                    // fontWeight: 5,
+                    itemMargin: {
+                        horizontal: 20,
+                        vertical: 0
+                    },
+                    markers: {
+                        width: 14
+                    }
+                },
+            }
+        }
+    ],
+
+    series: [
+        {
+            name: 'APK',
+            data: [71.62, 19.11, 62.45, 30.27]
+        },
+        {
+            name: 'APM',
+            data: [67.57, 17.68, 51.34, 20.22]
+        },
+        {
+            name: 'APS',
+            data: [0.18, 0.78, 0.51]
+        }
+    ],
+
+    colors: ['#0802A3', '#F99417', '#B4B4B3'],
+
+    chart: {
+        type: 'bar'
+    },
+
+    plotOptions: {
+        bar: {
+            horizontal: false,
+            columnWidth: '80%',
+            endingShape: 'rounded',
+            dataLabels: {
+                position: 'top'
+            }
+        }
+    },
+
+    fill: {
+        opacity: 1,
+        // colors: ['#0802A3', '#F99417', '#F1EFEF']
+    },
+
+    stroke: {
+        show: true,
+        width: 3,
+        colors: ['transparent']
+    },
+
+    dataLabels: {
+        offsetY: -20,
+        style: {
+            fontSize: '13px',
+            colors: ['#000']
+        },
+        formatter: function (value) {
+            // Menghilangkan desimal dan angka nol di belakang koma
+            return value.toLocaleString('id-ID');
+        }
+    },
+
+    grid: {
+        // borderColor: '#000'
+    },
+
+    xaxis: {
+        categories: ['SD', 'MI', 'SMP', 'MTs'],
+        axisBorder: {
+            show: true,
+            color: '#000',
+            height: 2
+        },
+        axisTicks: {
+            show: false
+        },
+        labels: {
+            style: {
+                fontSize: '15px',
+                fontWeight: 550,
+                colors: ['#000', '#000', '#000', '#000']
+            }
+        }
+    },
+
+    yaxis: {
+        show: false,
+        axisBorder: {
+            show: true,
+            color: '#000',
+        },
+        axisTicks: {
+            show: false
+        },
+    },
+
+    legend: {
+        show: true,
+        position: 'top',
+        fontSize: '14px',
+        // fontWeight: 5,
+        itemMargin: {
+            horizontal: 20,
+            vertical: 0
+        },
+        markers: {
+            width: 14
+        }
+    },
+}
+
 var chartKemiringanLahan = new ApexCharts(document.querySelector('#chart-kemiringan-lahan'), optionsKemiringanLahan);
 var chartLahanBukanSawah = new ApexCharts(document.querySelector("#chart-lahan"), optionsLahanBukanSawah);
 var chartGender = new ApexCharts(document.querySelector("#chart-gender"), optionsGender);
 var chartASN = new ApexCharts(document.querySelector('#chart-asn'), optionsASN);
+var chartPejabatStruktural = new ApexCharts(document.querySelector('#chart-pejabat-struktural'), optionsPejabatStruktural);
+var chartPejabatFungsional = new ApexCharts(document.querySelector('#chart-pejabat-fungsional'), optionsPejabatFungsional);
+var chartAP = new ApexCharts(document.querySelector('#chart-ap'), optionsAP);
 
 chartLahanBukanSawah.render();
 chartKemiringanLahan.render();
 chartGender.render();
 chartASN.render();
+chartPejabatStruktural.render();
+chartPejabatFungsional.render();
+chartAP.render();
